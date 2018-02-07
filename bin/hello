@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require 'hello'
+
+Hello::CLI.start(ARGV)
