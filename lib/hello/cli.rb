@@ -16,9 +16,9 @@ module Hello
     option :'get-summary',
            required: false,
            desc: 'Get Player summary'
-    def steam()
+    def steam
       client = Hello::SteamClient.new(options[:apikey], options[:steamid])
-      client.get_player_summaries() if options['get-summary']
+      client.player_summary if options['get-summary']
     end
   end
 end
