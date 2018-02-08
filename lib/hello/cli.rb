@@ -1,14 +1,24 @@
 require 'thor'
-require 'hello/steam'
 
 module Hello
   class CLI < Thor
-    desc "steam", "Get steam profile information"
-    option :apikey, :required => true
-    option :steamid, :required => true
+    desc 'steam', 'Get steam profile information'
+    option :'apikey',
+           required: true,
+           default: Hello::Settings['steam']['api_key'],
+           type: :string,
+           desc: 'Steam API key'
+    option :'steamid',
+           required: true,
+           default: Hello::Settings['steam']['steam_id'],
+           type: :string,
+           desc: 'Steam64 ID of player'
+    option :'get-summary',
+           required: false,
+           desc: 'Get Player summary'
     def steam()
       client = Hello::SteamClient.new(options[:apikey], options[:steamid])
-      client.get_player_summaries()
+      client.get_player_summaries() if options['get-summary']
     end
   end
 end

@@ -6,11 +6,12 @@ Gem::Specification.new do |spec|
   spec.description = "A simple dummy Gem doing some API stuff"
   spec.authors     = ["Cuong Duong Tuan"]
   spec.email       = 'cduongt@cesnet.cz'
-  spec.files       = Dir['lib/**/*.rb']
+  spec.files       = Dir['lib/**/*.rb', 'config/*.yml']
   spec.require_paths = ['lib']
   spec.executables = ['hello']
   spec.homepage    =
     'https://github.com/cduongt/hello'
   spec.license       = 'MIT'
   spec.add_runtime_dependency 'thor', '~> 0.19'
+  spec.add_runtime_dependency 'settingslogic', '~> 2.0'
 end
